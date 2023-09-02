@@ -38,9 +38,9 @@ export const ProfileProvider = ({ children }) => {
     };
   }, []);
   return (
-    <ProfileContext.ProfileProvider value={{ isLoading, profile }}>
+    <ProfileContext.Provider value={{ isLoading, profile }}>
       {children}
-    </ProfileContext.ProfileProvider>
+    </ProfileContext.Provider>
   );
 };
 export const useProfile = () => useContext(ProfileContext);
