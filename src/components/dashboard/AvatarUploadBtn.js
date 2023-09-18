@@ -5,6 +5,8 @@ import { Button } from 'rsuite';
 import { Alert } from 'rsuite';
 import { useState, useRef } from 'react';
 import { database, storage } from '../../misc/firebase';
+import { useProfile } from '../../context/profile.context';
+import ProfileAvatar from '../ProfileAvatar';
 
 const fileInputTypes = '.png, jpeg, .jpg';
 const acceptedFileTypes = ['image/png', 'image/jpeg', 'iamge/pjpeg'];
@@ -22,7 +24,7 @@ const getBlob = canvas => {
 };
 const AvatarUploadBtn = () => {
   const { isOpen, open, close } = useModalSate();
-  const { profile } = profile();
+  const { profile } = useProfile();
   const [img, setImg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const avatarEditorRef = useRef();
@@ -64,6 +66,11 @@ const AvatarUploadBtn = () => {
 
   return (
     <div className="mt-3 text-center">
+      <ProfileAvatar
+        src={profile.avatar}
+        name={profile.name}
+        className="width-200 height-200 img-fullsize font-huge"
+      />
       <div>
         <label htmlFor="avatar-upload" className="d-block cursor-poiner padded">
           Select new avatar
