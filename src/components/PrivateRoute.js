@@ -1,4 +1,4 @@
-import { Redirect, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import { Redirect, Route } from 'react-router-dom';
 import { useProfile } from '../context/profile.context';
 import { Container, Loader } from 'rsuite';
 
