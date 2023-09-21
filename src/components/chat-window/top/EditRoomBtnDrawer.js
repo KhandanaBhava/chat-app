@@ -48,7 +48,7 @@ const EditRoomBtnDrawer = () => {
             emptyMsg="Name cannot be empty"
           />
           <EditableInput
-            componentClass="text-area"
+            componentClass="textarea"
             rows={5}
             initialValue={description}
             onSave={onDescriptionSave}
