@@ -33,11 +33,11 @@ const Chat = () => {
       <div className="chat-top">
         <ChatTop />
       </div>
-      ;
+
       <div className="chat-middle">
         <Messages />
       </div>
-      ;
+
       <div className="chat-bottom">
         <ChatBottom />
       </div>
