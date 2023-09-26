@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { Loader } from 'rsuite';
 import ChatTop from '../../components/chat-window/top';
@@ -11,6 +12,9 @@ import { auth } from '../../misc/firebase';
 const Chat = () => {
   const { chatId } = useParams();
   const rooms = useRooms();
+  useEffect(() => {
+    window.chatId = chatId;
+  }, [chatId]);
   if (!rooms) {
     return <Loader center vertical size="md" content="Loading" speed="slow" />;
   }

@@ -27,8 +27,8 @@ const SignIn = () => {
           <Col xs={24} md={12} mdOffset={6}>
             <Panel>
               <div className="text-center">
-                <h2>Welcome to Chat</h2>
-                <p>Progressive chat platform for neophytes</p>
+                <h2>Welcome to Kouventa</h2>
+                <p> A chat platform for developers</p>
               </div>
               <div className="mt-3">
                 <Button block color="green" onClick={onGoogleSignIn}>

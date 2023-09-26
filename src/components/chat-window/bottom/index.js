@@ -38,7 +38,7 @@ const Bottom = () => {
     const updates = {};
     const messageId = database.ref('messages').push().key;
     updates[`/messages/${messageId}`] = msgData;
-    updates[`/rooms/${chatId}/lastMessage`] = {
+    updates[`/rooms/${window.chatId}/lastMessage`] = {
       ...msgData,
       msgId: messageId,
     };
@@ -63,13 +63,13 @@ const Bottom = () => {
       setIsLoading(true);
       const updates = {};
       files.forEach(file => {
-        const msgData = assembleMessage(profile, chatId);
+        const msgData = assembleMessage(profile, window.chatId);
         msgData.file = file;
         const messageId = database.ref('messages').push().key;
         updates[`/messages/${messageId}`] = msgData;
       });
       const lastMsgId = Object.keys(updates).pop();
-      updates[`/rooms/${chatId}/lastMessage`] = {
+      updates[`/rooms/${window.chatId}/lastMessage`] = {
         ...updates[lastMsgId],
         msgId: lastMsgId,
       };
@@ -82,7 +82,7 @@ const Bottom = () => {
         Alert.error(err.message);
       }
     },
-    [chatId, profile]
+    [profile]
   );
   return (
     <div>
